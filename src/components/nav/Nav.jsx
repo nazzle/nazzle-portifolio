@@ -1,17 +1,18 @@
-import React from 'react'
+import { React, useState } from 'react'
 import './nav.css'
 import { AiOutlineHome, AiOutlineInfoCircle, AiOutlineContacts } from 'react-icons/ai'
 import { GiNetworkBars } from 'react-icons/gi'
 import { BsListTask } from 'react-icons/bs'
 
 const Nav = () => {
+  const [activeNav, setActiveNav] = useState('#')
   return (
     <nav>
-      <a href="#" className='active'><AiOutlineHome /></a>
-      <a href="#about"><AiOutlineInfoCircle /></a>
-      <a href="#experience"><GiNetworkBars /></a>
-      <a href="#services"><BsListTask /></a>
-      <a href="#contact"><AiOutlineContacts /></a>
+      <a href="#" onClick={() => setActiveNav('#')} className={activeNav === '#' ? 'active' : '' }><AiOutlineHome /></a>
+      <a href="#about" onClick={() => setActiveNav('#about')} className={activeNav === '#about' ? 'active' : '' }><AiOutlineInfoCircle /></a>
+      <a href="#experience" onClick={() => setActiveNav('#experience')} className={activeNav === '#experience' ? 'active' : '' }><GiNetworkBars /></a>
+      <a href="#services" onClick={() => setActiveNav('#services')} className={activeNav === '#services' ? 'active' : '' }><BsListTask /></a>
+      <a href="#contact" onClick={() => setActiveNav('#contact')} className={activeNav === '#contact' ? 'active' : '' }><AiOutlineContacts /></a>
     </nav>
   )
 }
